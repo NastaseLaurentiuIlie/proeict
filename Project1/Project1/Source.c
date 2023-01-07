@@ -381,3 +381,53 @@ void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
     printf("**************************\n");
     SetColor(7);
 }
+
+void menu(int n, int* opt) //meniul programului
+{
+
+    system("CLS");
+    SetColor(11);
+    printf("****************\n");
+    printf(" 1.");
+    SetColor(7);
+    printf("Generati ");
+    SetColor(15);
+    printf("%d ", n);
+    SetColor(7);
+    printf("numere aleatoare pentru cautare\n");
+    SetColor(11);
+    printf(" 2.");
+    SetColor(7);
+    printf("Schimbati marimea sirului de numere\n");
+    SetColor(11);
+    printf(" 3.");
+    SetColor(7);
+    printf("Sortati folosind algoritmul bubble sorrt\n");
+    SetColor(11);
+    printf(" 4.");
+    SetColor(7);
+    printf("Sortati folosind algoritmul shell short\n");
+    SetColor(12);
+    printf(" 5.");
+    SetColor(7);
+    printf("Sortati folosind algoritmul quick sort\n");
+    SetColor(11);
+
+    printf(" 6.");
+    SetColor(7);
+    printf("Comparati rezultate\n");
+    SetColor(11);
+    printf(" 0.EXIT\n");
+    SetColor(11);
+    printf("****************\n");
+    printf("Optiunea dumneavoastra: ");
+    scanf("%d", &*opt);
+    printf("****************\n");
+    SetColor(7);
+}
+
+void pauza() // functie de press any key to continue but in ro
+{
+    printf("\nApasati orice tasta pentru a reveni la meniu...");
+    getch();
+}

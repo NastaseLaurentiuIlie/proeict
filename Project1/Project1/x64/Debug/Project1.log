@@ -1,0 +1,10 @@
+﻿  Source.c
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(200,17): warning C4013: 'compara_timpi' undefined; assuming extern returning int
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(81,9): warning C4101: 'x': unreferenced local variable
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(142,28): warning C4101: 'start': unreferenced local variable
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(171,28): warning C4101: 'start': unreferenced local variable
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(198,28): warning C4101: 'start': unreferenced local variable
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(289,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(61): warning C4716: 'partition': must return a value
+Source.obj : error LNK2019: unresolved external symbol compara_timpi referenced in function main
+C:\Users\Laurentiu\proeict\Project1\x64\Debug\Project1.exe : fatal error LNK1120: 1 unresolved externals
