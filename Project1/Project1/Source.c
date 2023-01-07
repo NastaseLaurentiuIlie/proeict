@@ -282,3 +282,34 @@ int gen_rand_num(int max) { //functie care genereaza un numar aleator z la apela
     z = (rand() + y) % max;
     return z;
 }
+void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoare
+{
+    int i, j, x;
+
+    srand(time(NULL));  //foloseste timpul actual pentru generarea numerelor aleatoare
+    v = malloc(sizeof(int) * n);    //alocare dinamica de memorie pentru vectorul creat
+    v1 = malloc(sizeof(int) * n);
+    v2 = malloc(sizeof(int) * n);
+    for (i = 0; i < n; i++)
+    {
+        x = gen_rand_num(n + n);    //genereaza un element aleatoare care urmeaza a fi introdus
+        for (j = 0; j < i; j++)    //se evita dublurile
+        {
+            if (v[j] == x) {    //daca exista deja, se genereaza un nou element aleator
+                j = n;
+                i--;
+            }
+
+        }
+        if (j < n) {    //daca nu exista in vector deja, se introduce
+            v[i] = x;
+            v1[i] = x;
+            v2[i] = x;
+        }
+
+    }
+    printf("Vectorul de numere s-a generat cu ");   //mesaj de verificare
+    SetColor(10);
+    printf("SUCCES\n");
+    SetColor(7);
+}
