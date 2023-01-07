@@ -262,3 +262,15 @@ void SetColor(int ForgC) //functie care seteaza culoarea textului
         SetConsoleTextAttribute(hStdOut, wColor);
     }
 }
+SYSTEMTIME afis_timp(SYSTEMTIME start) //afisare timp start - final
+{
+    SYSTEMTIME end;
+    SYSTEMTIME final;
+    GetSystemTime(&end);
+
+    final.wMinute = end.wMinute - start.wMinute;
+    final.wSecond = end.wSecond - start.wSecond;
+    final.wMilliseconds = end.wMilliseconds - start.wMilliseconds;
+    return final;
+
+}
