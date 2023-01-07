@@ -336,3 +336,48 @@ void bubble_sort(int n) //sortarea bubble
     printf("SUCCES\n");
     SetColor(7);
 }
+
+void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
+{
+    int i, j = 0;
+
+    printf("Vectorul este format din urmatoarele elemente:\n\n");
+
+    SetColor(11);
+    printf("**************************\n");
+    printf("*  +   *");
+    for (i = 1; i <= 10; i++)
+    {
+        printf("   %-2d *", i);  // cap de tabel
+    }
+    printf("\n");
+    printf("**************************\n");
+    SetColor(7);
+
+    for (i = 0; i < n; i++)    //afisare elemente + pozitia
+    {
+        j++;
+        if (j == 1)
+        {
+            SetColor(11);
+            printf("* %-4d *", i);
+            SetColor(7);
+        }
+
+        printf(" %-4d |", g[i]);
+
+        if (j == 10)   //dupa 10 elemente se trece pe randul urmator
+        {
+            printf("\n");
+            j = 0;
+        }
+
+    }
+
+    if (j < 10)
+        printf("\n");
+
+    SetColor(11);
+    printf("**************************\n");
+    SetColor(7);
+}
