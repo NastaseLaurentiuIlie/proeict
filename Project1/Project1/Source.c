@@ -227,3 +227,38 @@ int main()
     free(v);
     return 0;
 }
+
+
+void SetColor(int ForgC) //functie care seteaza culoarea textului
+{
+    //http://stackoverflow.com/questions/29574849/how-to-change-text-color-and-console-color-in-codeblocks
+    /*Name       | Value
+    Black        |   0
+    Blue         |   1
+    Green        |   2
+    Cyan         |   3
+    Red          |   4
+    Magenta      |   5
+    Brown        |   6
+    Light Gray   |   7
+    Dark Gray    |   8
+    Light Blue   |   9
+    Light Green  |   10
+    Light Cyan   |   11
+    Light Red    |   12
+    Light Magenta|   13
+    Yellow       |   14
+    White        |   15
+    */
+
+    WORD wColor;
+
+    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+    if (GetConsoleScreenBufferInfo(hStdOut, &csbi))
+    {
+        wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
+        SetConsoleTextAttribute(hStdOut, wColor);
+    }
+}
