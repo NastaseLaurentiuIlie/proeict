@@ -36,3 +36,37 @@ void shell_sort(int n) {
         printf("Trecerea %d: ", l + 1);
     }
 }
+void swap(int* a, int* b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+int partition(int low, int high)
+{
+    int pivot = v2[(high + low) / 2];
+    while (low <= high)
+    {
+        while (v2[low] < pivot)
+            low++;
+        while (v2[high] > pivot)
+            high--;
+        if (low <= high)
+        {
+            swap(&v2[low], &v2[high]);
+            low++;
+            high--;
+        }
+    }
+}
+
+void quickSort(int s, int d)
+{
+    if (s < d)
+    {
+        int pi = partition(s, d);
+        count++;
+        quickSort(s, pi - 1);
+        quickSort(pi, d);
+    }
+}
