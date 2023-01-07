@@ -313,3 +313,26 @@ void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoa
     printf("SUCCES\n");
     SetColor(7);
 }
+void bubble_sort(int n) //sortarea bubble
+{
+    int aux, i, j = 1, sorted = 0;
+    while (!sorted)
+    {
+        sorted = 1;  //flag
+        for (i = 0; i < n - j; i++)
+        {
+            if (v[i] > v[i + 1])
+            {
+                aux = v[i];
+                v[i] = v[i + 1];
+                v[i + 1] = aux;
+                sorted = 0;
+            }
+        }
+        j++;
+    }
+    printf("Vectorul a fost sortat cu ");   //mesaj verificare
+    SetColor(10);
+    printf("SUCCES\n");
+    SetColor(7);
+}
