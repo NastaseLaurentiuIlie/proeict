@@ -274,3 +274,11 @@ SYSTEMTIME afis_timp(SYSTEMTIME start) //afisare timp start - final
     return final;
 
 }
+
+int gen_rand_num(int max) { //functie care genereaza un numar aleator z la apelare
+    int x, y, z;
+    x = rand();
+    y = rand() + x;
+    z = (rand() + y) % max;
+    return z;
+}
