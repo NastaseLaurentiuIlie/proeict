@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <dos.h>
-//#include <dir.h>
+
 
 int* v, * v1, * v2, parcurgeri = 0, count = 1, finished = 0;
 SYSTEMTIME start, start1, start2, final, final1, final2;
@@ -69,6 +69,13 @@ void quickSort(int s, int d)
         quickSort(s, pi - 1);
         quickSort(pi, d);
     }
+}
+void compara_timpi()
+{
+    printf("Toti algoritmii au fost executati.\nREZULTATE\n");
+    printf("Algoritmul bubble sort s a executat in %d secunde , %d milisecunde \n", final.wSecond, final.wMilliseconds);
+    printf("Algoritmul shell sort s a executat in %d secunde , %d milisecunde \n", final1.wSecond, final1.wMilliseconds);
+    printf("Algoritmul quick sort s a executat in %d secunde , %d milisecunde \n", final2.wSecond, final2.wMilliseconds);
 }
 int main()
 {
@@ -228,7 +235,6 @@ int main()
     return 0;
 }
 
-
 void SetColor(int ForgC) //functie care seteaza culoarea textului
 {
     //http://stackoverflow.com/questions/29574849/how-to-change-text-color-and-console-color-in-codeblocks
@@ -262,6 +268,7 @@ void SetColor(int ForgC) //functie care seteaza culoarea textului
         SetConsoleTextAttribute(hStdOut, wColor);
     }
 }
+
 SYSTEMTIME afis_timp(SYSTEMTIME start) //afisare timp start - final
 {
     SYSTEMTIME end;
@@ -282,6 +289,7 @@ int gen_rand_num(int max) { //functie care genereaza un numar aleator z la apela
     z = (rand() + y) % max;
     return z;
 }
+
 void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoare
 {
     int i, j, x;
@@ -313,6 +321,7 @@ void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoa
     printf("SUCCES\n");
     SetColor(7);
 }
+
 void bubble_sort(int n) //sortarea bubble
 {
     int aux, i, j = 1, sorted = 0;
@@ -336,6 +345,10 @@ void bubble_sort(int n) //sortarea bubble
     printf("SUCCES\n");
     SetColor(7);
 }
+
+
+
+
 
 void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
 {
