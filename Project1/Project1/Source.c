@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <conio.h>
-#include <dos.h>
+
+
 
 
 int* v, * v1, * v2, parcurgeri = 0, count = 1, finished = 0;
@@ -17,7 +17,6 @@ void caut_lin(int, int);
 void caut_bin(int, int, int);
 void afisare_numere(int, int*);
 void menu(int, int*);
-void pauza();
 void shell_sort(int n) {
     printf("Se sorteaza folosind algoritmul shell sort");
     int i, j, aux, l, k;
@@ -93,11 +92,11 @@ int main()
         switch (opt)
         {
         case 1: //optiunea 1 de a genera vectorul
-            system("CLS"); //clear screen
+            //clear screen
             gen_vect_unice(n); //genereaza vectorul
             afisare_numere(n, v);//afiseaza vectorul generat
             flag = 1; //astfel se stie ca a fost generat vectorul macar odata
-            pauza();    //pauza pentru vizionare
+            //pauza pentru vizionare
             break;
 
         case 2: //optiunea 2 de a schimba dimensiunea vectorului
@@ -110,9 +109,9 @@ int main()
         case 3: //optiunea 3 de a face cautare liniara
             if (flag)
             {
-                system("CLS");  //eliberare ecran
-                //se afiseaza numerele disponibile
-                //schimba culoarea textului
+                //eliberare ecran
+               //se afiseaza numerele disponibile
+               //schimba culoarea textului
                 printf("\n**********************\n");
 
                 //se retine aici timpul de inceput
@@ -131,20 +130,20 @@ int main()
                 printf("\n**********************\n");
 
                 finished++;
-                pauza();
+
             }
             else    //cazul in care nu s-a generat un vector inainte, cautarea nu poate fi realizata
             {
-                system("CLS");
+
                 printf("\nGenerati mai intai vectorul de numere!\n");
-                pauza();
+
             }
             break;
 
         case 4: //optiunea 4 in care se realizeaza cautarea binara
             if (flag)
             {
-                system("CLS");
+
 
                 printf("\n**********************\n");
 
@@ -166,19 +165,19 @@ int main()
                 printf("\n**********************\n");
 
                 finished++;
-                pauza();
+
             }
             else    //cazul in care nu s-a generat vectorul
             {
-                system("CLS");
+
                 printf("\nGenerati mai intai vectorul de numere!\n");
-                pauza();
+
             }
             break;
         case 5:
             if (flag)
             {
-                system("CLS");
+
 
                 printf("\n**********************\n");
 
@@ -195,19 +194,19 @@ int main()
                 printf("\n**********************\n");
 
                 finished++;
-                pauza();
+
             }
             else    //cazul in care nu s-a generat vectorul
             {
-                system("CLS");
+
                 printf("\nGenerati mai intai vectorul de numere!\n");
-                pauza();
+
             }
             break;
         case 6:
             if (finished == 3)
             {
-                system("CLS");
+
 
                 printf("\n**********************\n");
 
@@ -218,26 +217,26 @@ int main()
                 printf("\n**********************\n");
 
 
-                pauza();
+
             }
             else    //cazul in care nu s-a generat vectorul
             {
-                system("CLS");
+
                 printf("\nExecutati mai intai toti algoritmii\n");
-                pauza();
+
             }
             break;
         case 0:
             break;
 
         default:    //cazul in care se introduce un numar care nu se afla printre optiuni
-            system("CLS");
+
             printf("Numarul introdus este");
 
             printf(" INEXISTENT\n");
 
 
-            pauza();
+
         }
     } while (opt);
     free(v);
@@ -363,7 +362,7 @@ void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
 void menu(int n, int* opt) //meniul programului
 {
 
-    system("CLS");
+
 
     printf("****************\n");
     printf(" 1.");
@@ -404,8 +403,3 @@ void menu(int n, int* opt) //meniul programului
 
 }
 
-void pauza() // functie de press any key to ccasontinue but in ro
-{
-    printf("\nApasati orice tasta pentru a reveni la meniu...");
-    getch();
-}
