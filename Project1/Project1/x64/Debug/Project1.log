@@ -1,8 +1,2 @@
 ﻿  Source.c
-C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(88,9): warning C4101: 'x': unreferenced local variable
-C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(149,28): warning C4101: 'start': unreferenced local variable
-C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(178,28): warning C4101: 'start': unreferenced local variable
-C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(205,28): warning C4101: 'start': unreferenced local variable
-C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(297,11): warning C4244: 'function': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(61): warning C4716: 'partition': must return a value
-  Project1.vcxproj -> C:\Users\Laurentiu\proeict\Project1\x64\Debug\Project1.exe
+C:\Users\Laurentiu\proeict\Project1\Project1\Source.c(4,10): fatal  error C1083: Cannot open include file: 'sys/time.h': No such file or directory

@@ -1,6 +1,6 @@
 FROM gcc:latest
 WORKDIR /workdir
-COPY myapp.cpp .
-RUN gcc -o myapp myapp.cpp -lstdc++
+COPY Source.c .
+RUN gcc -o myapp Source.c -lstdc++
 CMD ["./myapp"]
 

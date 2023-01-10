@@ -1,15 +1,15 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <windows.h>
 #include <conio.h>
 #include <dos.h>
 
 
 int* v, * v1, * v2, parcurgeri = 0, count = 1, finished = 0;
-SYSTEMTIME start, start1, start2, final, final1, final2;
-void SetColor(int);
-SYSTEMTIME afis_timp(SYSTEMTIME);
+double t1, t2, t3;
+
+//struct tm tm = *localtime(&t);
+void afis_timp(struct timeval);
 int gen_rand_num(int);
 void gen_vect_unice(int);
 void bubble_sort(int);
@@ -70,12 +70,11 @@ void quickSort(int s, int d)
         quickSort(pi, d);
     }
 }
-void compara_timpi()
+void compara_timpi(double t1, double t2, double t3)
 {
-    printf("Toti algoritmii au fost executati.\nREZULTATE\n");
-    printf("Algoritmul bubble sort s a executat in %d secunde , %d milisecunde \n", final.wSecond, final.wMilliseconds);
-    printf("Algoritmul shell sort s a executat in %d secunde , %d milisecunde \n", final1.wSecond, final1.wMilliseconds);
-    printf("Algoritmul quick sort s a executat in %d secunde , %d milisecunde \n", final2.wSecond, final2.wMilliseconds);
+    printf("\nAlgoritmul bubble sort s a executat in %.5f secunde", t1);
+    printf("\nAlgoritmul shell sort s a executat in %.5f secunde\n", t2);
+    printf("Algoritmul quick sort s a executat in %.5f secunde\n", t3);
 }
 int main()
 {
@@ -113,20 +112,24 @@ int main()
             {
                 system("CLS");  //eliberare ecran
                 //se afiseaza numerele disponibile
-                SetColor(11);//schimba culoarea textului
+                //schimba culoarea textului
                 printf("\n**********************\n");
-                SetColor(7);
 
                 //se retine aici timpul de inceput
-                GetSystemTime(&start);
+
+                struct timespec tstart = { 0,0 }, tend = { 0,0 };
+                clock_gettime(CLOCK_MONOTONIC, &tstart);
                 bubble_sort(n); //se face cautarea elementului x in vectorul v cu n elemente
                 afisare_numere(n, v); // afiseaza vectorul sortat
-                printf("Algoritmul s-a executat in ");
-                final = afis_timp(start);   //se retine timpul de final si se afiseaza diferenta dintre final si inceput
+                clock_gettime(CLOCK_MONOTONIC, &tend);
 
-                SetColor(11);
+                t1 = ((double)tend.tv_sec + 1.0e-9 * tend.tv_nsec) -
+                    (double)tstart.tv_sec + 1.0e-9 * tstart.tv_nsec;
+
+
+
                 printf("\n**********************\n");
-                SetColor(7);
+
                 finished++;
                 pauza();
             }
@@ -142,21 +145,26 @@ int main()
             if (flag)
             {
                 system("CLS");
-                SetColor(11);
-                printf("\n**********************\n");
-                SetColor(7);
 
-                SYSTEMTIME start;   //stocheaza timpul de inceput
-                GetSystemTime(&start1);
+                printf("\n**********************\n");
+
+                struct timespec tstart = { 0,0 }, tend = { 0,0 };
+                clock_gettime(CLOCK_MONOTONIC, &tstart);
+
                 shell_sort(n);
                 afisare_numere(n, v1);
-                printf("Algoritmul s-a executat in ");
 
-                final1 = afis_timp(start1);   //se afiseaza timpul de executie a algoritmului
+                clock_gettime(CLOCK_MONOTONIC, &tend);
 
-                SetColor(11);
+                t2 = ((double)tend.tv_sec + 1.0e-9 * tend.tv_nsec) -
+                    (double)tstart.tv_sec + 1.0e-9 * tstart.tv_nsec;
+
+
+
+
+
                 printf("\n**********************\n");
-                SetColor(7);
+
                 finished++;
                 pauza();
             }
@@ -171,19 +179,21 @@ int main()
             if (flag)
             {
                 system("CLS");
-                SetColor(11);
-                printf("\n**********************\n");
-                SetColor(7);
 
-                SYSTEMTIME start;   //stocheaza timpul de inceput
-                GetSystemTime(&start2);
+                printf("\n**********************\n");
+
+                struct timespec tstart = { 0,0 }, tend = { 0,0 };
+                clock_gettime(CLOCK_MONOTONIC, &tstart);
+
                 quickSort(0, n - 1);
                 afisare_numere(n, v2);
-                printf("Algoritmul s-a executat in ");
-                final2 = afis_timp(start2);   //se afiseaza timpul de executie a algoritmul;
-                SetColor(11);
+                clock_gettime(CLOCK_MONOTONIC, &tend);
+
+                t3 = ((double)tend.tv_sec + 1.0e-9 * tend.tv_nsec) -
+                    (double)tstart.tv_sec + 1.0e-9 * tstart.tv_nsec;
+
                 printf("\n**********************\n");
-                SetColor(7);
+
                 finished++;
                 pauza();
             }
@@ -198,17 +208,16 @@ int main()
             if (finished == 3)
             {
                 system("CLS");
-                SetColor(11);
-                printf("\n**********************\n");
-                SetColor(7);
 
-                SYSTEMTIME start;   //stocheaza timpul de inceput
-                GetSystemTime(&start2);
-                compara_timpi();
-                SetColor(11);
                 printf("\n**********************\n");
-                SetColor(7);
-                finished++;
+
+
+
+                compara_timpi(t1, t2, t3);
+
+                printf("\n**********************\n");
+
+
                 pauza();
             }
             else    //cazul in care nu s-a generat vectorul
@@ -224,9 +233,9 @@ int main()
         default:    //cazul in care se introduce un numar care nu se afla printre optiuni
             system("CLS");
             printf("Numarul introdus este");
-            SetColor(12);
+
             printf(" INEXISTENT\n");
-            SetColor(7);
+
 
             pauza();
         }
@@ -235,52 +244,8 @@ int main()
     return 0;
 }
 
-void SetColor(int ForgC) //functie care seteaza culoarea textului
-{
-    //http://stackoverflow.com/questions/29574849/how-to-change-text-color-and-console-color-in-codeblocks
-    /*Name       | Value
-    Black        |   0
-    Blue         |   1
-    Green        |   2
-    Cyan         |   3
-    Red          |   4
-    Magenta      |   5
-    Brown        |   6
-    Light Gray   |   7
-    Dark Gray    |   8
-    Light Blue   |   9
-    Light Green  |   10
-    Light Cyan   |   11
-    Light Red    |   12
-    Light Magenta|   13
-    Yellow       |   14
-    White        |   15
-    */
 
-    WORD wColor;
 
-    HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-    CONSOLE_SCREEN_BUFFER_INFO csbi;
-
-    if (GetConsoleScreenBufferInfo(hStdOut, &csbi))
-    {
-        wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
-        SetConsoleTextAttribute(hStdOut, wColor);
-    }
-}
-
-SYSTEMTIME afis_timp(SYSTEMTIME start) //afisare timp start - final
-{
-    SYSTEMTIME end;
-    SYSTEMTIME final;
-    GetSystemTime(&end);
-
-    final.wMinute = end.wMinute - start.wMinute;
-    final.wSecond = end.wSecond - start.wSecond;
-    final.wMilliseconds = end.wMilliseconds - start.wMilliseconds;
-    return final;
-
-}
 
 int gen_rand_num(int max) { //functie care genereaza un numar aleator z la apelare
     int x, y, z;
@@ -295,9 +260,9 @@ void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoa
     int i, j, x;
 
     srand(time(NULL));  //foloseste timpul actual pentru generarea numerelor aleatoare
-    v = malloc(sizeof(int) * n);    //alocare dinamica de memorie pentru vectorul creat
-    v1 = malloc(sizeof(int) * n);
-    v2 = malloc(sizeof(int) * n);
+    v = (int*)malloc(sizeof(int) * n);    //alocare dinamica de memorie pentru vectorul creat
+    v1 = (int*)malloc(sizeof(int) * n);
+    v2 = (int*)malloc(sizeof(int) * n);
     for (i = 0; i < n; i++)
     {
         x = gen_rand_num(n + n);    //genereaza un element aleatoare care urmeaza a fi introdus
@@ -317,9 +282,9 @@ void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoa
 
     }
     printf("Vectorul de numere s-a generat cu ");   //mesaj de verificare
-    SetColor(10);
+
     printf("SUCCES\n");
-    SetColor(7);
+
 }
 
 void bubble_sort(int n) //sortarea bubble
@@ -341,9 +306,9 @@ void bubble_sort(int n) //sortarea bubble
         j++;
     }
     printf("Vectorul a fost sortat cu ");   //mesaj verificare
-    SetColor(10);
+
     printf("SUCCES\n");
-    SetColor(7);
+
 }
 
 
@@ -356,7 +321,7 @@ void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
 
     printf("Vectorul este format din urmatoarele elemente:\n\n");
 
-    SetColor(11);
+
     printf("**************************\n");
     printf("*  +   *");
     for (i = 1; i <= 10; i++)
@@ -365,16 +330,16 @@ void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
     }
     printf("\n");
     printf("**************************\n");
-    SetColor(7);
+
 
     for (i = 0; i < n; i++)    //afisare elemente + pozitia
     {
         j++;
         if (j == 1)
         {
-            SetColor(11);
+
             printf("* %-4d *", i);
-            SetColor(7);
+
         }
 
         printf(" %-4d |", g[i]);
@@ -390,56 +355,56 @@ void afisare_numere(int n, int* g) //afisarea vectorului v in mod tabelar
     if (j < 10)
         printf("\n");
 
-    SetColor(11);
+
     printf("**************************\n");
-    SetColor(7);
+
 }
 
 void menu(int n, int* opt) //meniul programului
 {
 
     system("CLS");
-    SetColor(11);
+
     printf("****************\n");
     printf(" 1.");
-    SetColor(7);
+
     printf("Generati ");
-    SetColor(15);
+
     printf("%d ", n);
-    SetColor(7);
+
     printf("numere aleatoare pentru cautare\n");
-    SetColor(11);
+
     printf(" 2.");
-    SetColor(7);
+
     printf("Schimbati marimea sirului de numere\n");
-    SetColor(11);
+
     printf(" 3.");
-    SetColor(7);
+
     printf("Sortati folosind algoritmul bubble sorrt\n");
-    SetColor(11);
+
     printf(" 4.");
-    SetColor(7);
+
     printf("Sortati folosind algoritmul shell short\n");
-    SetColor(12);
+
     printf(" 5.");
-    SetColor(7);
+
     printf("Sortati folosind algoritmul quick sort\n");
-    SetColor(11);
+
 
     printf(" 6.");
-    SetColor(7);
+
     printf("Comparati rezultate\n");
-    SetColor(11);
+
     printf(" 0.EXIT\n");
-    SetColor(11);
+
     printf("****************\n");
     printf("Optiunea dumneavoastra: ");
     scanf("%d", &*opt);
     printf("****************\n");
-    SetColor(7);
+
 }
 
-void pauza() // functie de press any key to continue but in ro
+void pauza() // functie de press any key to ccasontinue but in ro
 {
     printf("\nApasati orice tasta pentru a reveni la meniu...");
     getch();
