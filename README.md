@@ -32,29 +32,7 @@ Codul C
 1.	Algoritmul Bubble Sort:
 
 
-void bubble_sort(int n) //sortarea bubble
-{
-    int aux, i, j = 1, sorted = 0;
-    while (!sorted)
-    {
-        sorted = 1;  //flag
-        for (i = 0; i < n - j; i++)
-        {
-            if (v[i] > v[i + 1])
-            {
-                aux = v[i];
-                v[i] = v[i + 1];
-                v[i + 1] = aux;
-                sorted = 0;
-            }
-        }
-        j++;
-    }
-    printf("Vectorul a fost sortat cu ");   //mesaj verificare
-
-    printf("SUCCES\n");
-
-}
+![image](https://user-images.githubusercontent.com/115789255/212035819-8cd6c210-2e82-4485-bd1c-25f1d13c72b3.png)
 
 
 2.Algoritmul Shell Sort
