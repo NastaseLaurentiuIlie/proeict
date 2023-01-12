@@ -43,34 +43,8 @@ Codul C
 3.Algoritmul Quick Sort
 
 
-int partition(int low, int high)
-{
-    int pivot = v2[(high + low) / 2];
-    while (low <= high)
-    {
-        while (v2[low] < pivot)
-            low++;
-        while (v2[high] > pivot)
-            high--;
-        if (low <= high)
-        {
-            swap(&v2[low], &v2[high]);
-            low++;
-            high--;
-        }
-    }
-}
+![image](https://user-images.githubusercontent.com/115789255/212036453-5892d7a9-98ac-420d-ad46-6e1ee6de4c92.png)
 
-void quickSort(int s, int d)
-{
-    if (s < d)
-    {
-        int pi = partition(s, d);
-        count++;
-        quickSort(s, pi - 1);
-        quickSort(pi, d);
-    }
-}
 
 4.Generare numere aleatoare pentru cei 3 algoritmi
 
