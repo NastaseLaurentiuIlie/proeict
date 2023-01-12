@@ -2,6 +2,9 @@ Cerinta :
 
 Se dă un tablou de N elemente aleatorii. Să se sorteze tabloul prin algoritmii Bubblesort, Shellsort și Quicksort și să se compare timpul de execuție pentru cele 3 metode.
 
+![image](https://user-images.githubusercontent.com/115789255/212040977-56faa66c-55ec-4e55-89d3-3dee90829de4.png)
+
+
 Despre Algoritmii comparati:
 
 Algoritmul Bubble Sort(Sortarea cu Bule/Interschimbare)
