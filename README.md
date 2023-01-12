@@ -37,24 +37,8 @@ Codul C
 
 2.Algoritmul Shell Sort
 
-void shell_sort(int n) {
-    printf("Se sorteaza folosind algoritmul shell sort");
-    int i, j, aux, l, k;
-    int h[3] = { 3, 2, 1 };
-    for (l = 0; l < 3; l++) {
-        k = h[l];
-        for (i = k; i < n; i++) {
-            aux = v1[i];
-            j = i - k;
-            while (j >= 0 && aux < v1[j]) {
-                v1[j + k] = v1[j];
-                j = j - k;
-            }
-            v1[j + k] = aux;
-        }
-        printf("Trecerea %d: ", l + 1);
-    }
-}
+![image](https://user-images.githubusercontent.com/115789255/212036076-82399f6c-573a-41b9-8f01-394a7010ffd3.png)
+
 
 3.Algoritmul Quick Sort
 
