@@ -8,6 +8,9 @@ Algoritmul Bubble Sort(Sortarea cu Bule/Interschimbare)
 Sortarea cu bule este un algoritm simplu de sortare care trece în mod repetat prin listă pentru a fi sortate, compară fiecare pereche de elemente adiacente și le schimbă dacă sunt în ordine greșită. Trecerea prin listă se repetă până când nu sunt necesare swap-uri, ceea ce indică faptul că lista este sortată. Algoritmul, care este un fel de comparație, este numit pentru modul în care elementele mai mici sau mai mari "bule" în partea de sus a listei pe măsură ce sortarea progresează.
 Cea mai veche referire cunoscută la algoritm este într-un articol de Tony Hoare în 1961, dar este probabil ca algoritmul să fi fost descoperit și folosit de alți informaticieni înainte de acel moment.
 
+![image](https://user-images.githubusercontent.com/115789255/212036894-d264be2f-dd29-489b-aca7-8152f260ca36.png)
+
+
 Algoritmul Shell Sort 
 
 Shell sort este un algoritm de comparare în loc de sortare. Îmbunătățește eficiența algoritmilor de sortare și inserție a bulelor. Ideea de bază a algoritmului este de a compara elemente care sunt îndepărtate unele de altele, mai degrabă decât elemente adiacente ca în algoritmii simpli de sortare. Algoritmul începe prin compararea elementelor care sunt departe, iar cu fiecare trecere, distanța dintre elementele comparate este redusă.
