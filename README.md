@@ -102,4 +102,13 @@ void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoa
 
 Prin aceasta functie am creat comparatia celor 3 algoritmi pentru a avea si o concluzie a proiectului respective algoritmul Quick Sort este cel mai rapid.
 
+Cum se ruleaza poiectul:
+
+Instaleaza Docker Desktop
+Deschide terminal si ruleaza urmatorul cod :
+docker run -it ilienastaselaurentiu020/myapp
+Multumesc!
+
+
+
 
