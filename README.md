@@ -105,8 +105,11 @@ Prin aceasta functie am creat comparatia celor 3 algoritmi pentru a avea si o co
 Cum se ruleaza poiectul:
 
 Instaleaza Docker Desktop
+
 Deschide terminal si ruleaza urmatorul cod :
+
 docker run -it ilienastaselaurentiu020/myapp
+
 Multumesc!
 
 
