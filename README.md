@@ -18,6 +18,9 @@ Acest lucru permite valorilor mai mari să "interschimbe" la pozițiile lor core
 Algoritmul de sortare Shell funcționează prin compararea elementelor care se află la o anumită distanță, numită decalaj, și apoi reducerea repetată a decalajului până când devine 1. Diferența este inițial setată la o valoare care este aproximativ jumătate din dimensiunea matricei și este apoi înjumătățită cu fiecare trecere. Elementele sunt apoi comparate și schimbate după cum este necesar, până când matricea este sortată.
 Acest algoritm a fost propus de Donald Shell în 1959
 
+![image](https://user-images.githubusercontent.com/115789255/212040152-691be36f-ed35-4a28-bcbf-8608a6c2bd28.png)
+
+
 Algoritmul QuickSort
 
 Quick Sort este un algoritm de sortare eficient, pe loc, bazat pe comparație. Funcționează prin partiționarea unei matrice în două sub-matrice mai mici, una conținând elemente care sunt mai mici decât un element pivot ales, iar cealaltă conținând elemente care sunt mai mari decât pivotul. Elementul pivot se află apoi în poziția sa finală în matricea sortată și același proces se repetă pe sub-matrice până când întreaga matrice este sortată.
@@ -29,6 +32,10 @@ Procedura de bază de sortare rapidă este după cum urmează:
 3.	Repetați pașii de mai sus din sub-matrice până când întreaga matrice este sortată.
 Sortarea rapidă este unul dintre cei mai eficienți algoritmi de sortare și are o complexitate medie a timpului de caz de O(n log n) și cea mai bună complexitate a timpului de caz al O(n log n) și cea mai gravă complexitate de timp a lui O(n^2)
 A fost propus pentru prima dată de Tony Hoare în 1959 și este popular folosit pentru sortarea seturilor mari de date.
+
+
+![image](https://user-images.githubusercontent.com/115789255/212039704-cebc6d04-a03c-4098-ae45-eaee51999597.png)
+
 
 Codul C
 
@@ -87,54 +94,8 @@ void gen_vect_unice(int n) //functie care genereaza vector de n elemente aleatoa
 
 }
 
-5. Meniu
 
-void menu(int n, int* opt) //meniul programului
-{
-
-
-
-    printf("****************\n");
-    printf(" 1.");
-
-    printf("Generati ");
-
-    printf("%d ", n);
-
-    printf("numere aleatoare pentru cautare\n");
-
-    printf(" 2.");
-
-    printf("Schimbati marimea sirului de numere\n");
-
-    printf(" 3.");
-
-    printf("Sortati folosind algoritmul bubble sorrt\n");
-
-    printf(" 4.");
-
-    printf("Sortati folosind algoritmul shell short\n");
-
-    printf(" 5.");
-
-    printf("Sortati folosind algoritmul quick sort\n");
-
-
-    printf(" 6.");
-
-    printf("Comparati rezultate\n");
-
-    printf(" 0.EXIT\n");
-
-    printf("****************\n");
-    printf("Optiunea dumneavoastra: ");
-    scanf("%d", &*opt);
-    printf("****************\n");
-
-}
-
-
-6.Functia compara timpii-Concluzie 
+5.Functia compara timpii-Concluzie 
 
 Prin aceasta functie am creat comparatia celor 3 algoritmi pentru a avea si o concluzie a proiectului respective algoritmul Quick Sort este cel mai rapid.
 
