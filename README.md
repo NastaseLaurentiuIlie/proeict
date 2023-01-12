@@ -29,7 +29,8 @@ A fost propus pentru prima dată de Tony Hoare în 1959 și este popular folosit
 
 Codul C
 
-1.	Algoritmul Bubble Sort 
+1.	Algoritmul Bubble Sort:
+
 
 void bubble_sort(int n) //sortarea bubble
 {
@@ -57,6 +58,7 @@ void bubble_sort(int n) //sortarea bubble
 
 
 2.Algoritmul Shell Sort
+
 void shell_sort(int n) {
     printf("Se sorteaza folosind algoritmul shell sort");
     int i, j, aux, l, k;
@@ -77,6 +79,7 @@ void shell_sort(int n) {
 }
 
 3.Algoritmul Quick Sort
+
 
 int partition(int low, int high)
 {
@@ -108,6 +111,7 @@ void quickSort(int s, int d)
 }
 
 4.Generare numere aleatoare pentru cei 3 algoritmi
+
 Aceasta functie creeaza prin 3 vectori lista a 1024 de numere aleatoare.
 Vectorii sunt identici pentru fiecare algoritm comparat.
 
@@ -191,7 +195,8 @@ void menu(int n, int* opt) //meniul programului
 }
 
 
-5 .Functia compara timpii 
+6.Functia compara timpii-Concluzie 
+
 Prin aceasta functie am creat comparatia celor 3 algoritmi pentru a avea si o concluzie a proiectului respective algoritmul Quick Sort este cel mai rapid.
 
 
